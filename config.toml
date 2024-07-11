@@ -1,0 +1,58 @@
+baseURL = "https://an.hux.ink"
+languageCode = "en-us"
+title = "ex博客"
+theme = "meteor"
+paginate = 20
+hasCJKLanguage = true
+summaryLength = 100
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+	[markup.tableOfContents]
+		startLevel = 2 # ToC starts from H2
+		endLevel = 4 # ToC ends at H4
+		ordered = false # generates <ul> instead of <ol>
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[permalinks]
+  blog = "/blog/:slug.html/"
+  
+[params]
+  title = "hux.ink"
+  logo = "https://an.hux.ink/favicon2.png"
+  author = "落落vici"
+  favicon = "https://an.hux.ink/favicon.ico"
+  buildDate = "2024-07-09"
+  twikooID = "https://twikoo.hux.ink/"
+
+
+[[params.socials]]
+name = "首页"
+link = "/"
+
+[[params.socials]]
+name = "归档"
+link = "/posts/"
+
+[[params.socials]]
+name = "哔哔"
+link = "/bb/"
+
+[[params.socials]]
+name = "花园"
+link = "https://clip.hux.ink/"
+
+[[params.socials]]
+name = "锻炼"
+link = "https://workout.hux.ink/"
+
+[[params.socials]]
+name = "关于"
+link = "/about/"
+
+

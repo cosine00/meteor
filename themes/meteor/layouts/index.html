@@ -1,0 +1,42 @@
+{{ partial "header.html" . }}
+
+{{ $articleCount := len .Site.RegularPages }}
+{{ $totalWordCount := 0 }}
+{{ range .Site.Pages }}
+{{ $totalWordCount = add $totalWordCount .WordCount }}
+{{ end }}
+
+<body>
+  <div class="aboutme">
+    <div class="container">
+      <div class="img"><img src="/favicon2.png" alt="author"></div>
+      <div class="info">
+        <p>我们一生好像只为了几件事：奋笔疾书的高考，短暂的春节返乡，挥手离别的不舍，满怀期待的节假日，一周疲惫上班后的双休以及每天下班前的倒计时。</p>
+        <a href="/index.xml" class="rss" target="_blank">订阅 RSS</a>
+      </div>
+    </div>
+  </div>
+  <main>
+    <ul class="blog-posts">
+      {{ $pages := .Site.RegularPages }}
+      {{ $paginator := .Paginate ($pages) }}
+      {{ range $paginator.Pages }}
+      {{ $title := .Title }}
+      {{ $summary := .Summary }}
+      <li>
+        <span>
+          <time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">{{ .Date.Format "2006.01.02"}}</time>
+        </span>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <!-- <div class="entry-content">
+      <p>{{ .Summary }}</p>
+    </div> -->
+      </li>
+      {{ end }}
+    </ul>
+
+    <div class="readmore"><a href="/posts/">查看全部文章</a></div>
+    <!-- {{ partial "pagination.html" . }} -->
+
+  </main>
+  {{ partial "footer.html" . }}
